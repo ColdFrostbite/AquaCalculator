@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+              try
+            {
+                volume.Text = ((float.Parse(bt_sizeA.Text) * float.Parse(tb_sizeB.Text) * float.Parse(bt_height.Text)) / 1000).ToString();
+                volumeGround.Text = ((float.Parse(bt_sizeA.Text) * float.Parse(tb_sizeB.Text) * float.Parse(bt_layer.Text)) / 1000).ToString();
+
+                if (String.IsNullOrEmpty(volume.Text))               
+                        return;
+                else
+                    throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                Console.Write("Произошла ошибка");
+            }
+        }
+        
+        
+        public void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            volume.Text = "0";
+            volumeGround.Text = "0";
+            amountGround.Text = "0";
+        }
+
+        
+        
+    }
+}
